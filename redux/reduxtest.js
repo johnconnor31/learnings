@@ -1,4 +1,4 @@
-// import {createStore} from 'redux';
+ const {createStore} = Redux;
 const counter = (state=0,action)=>{
   console.log(action);
   switch(action.type){
@@ -11,33 +11,18 @@ const counter = (state=0,action)=>{
   }
 }
 
-const createStore = (reducer) => {
-  let state=0;
-  let listeners=[];
-  const getState = ()=> state;
-  const dispatch = (action)=>{
-    console.log(action);
-    console.log(reducer);
-    state = reducer(state,action);
-    listeners.map(l=>l());
-  }
-  const subscribe = (listener) => {
-    listeners.push(listener);
-  } 
-  const unsubscribe  = (listener) =>{
-    listeners = listeners.filter((l) => l!=listener );
-  }
-  return {dispatch,subscribe,unsubscribe,getState};
+const store = createStore(counter);
+const Arith = (props) => {
+  return(
+  <div>
+  <div>{props.value}</div>
+  <div onClick= {props.incr}>+</div>
+  <div onClick= {props.decr}>-</div>
+  </div>);
 }
 const render = ()=>{
-    document.body.innerText = store.getState();
+ReactDOM.render(<Arith value={store.getState()} incr={()=>store.dispatch({type:'INCREMENT'})} decr={()=>store.dispatch({type:'DECREMENT'})} />,
+           document.getElementById('root'));
 }
-const store = createStore(counter);
-console.log(store);
 store.subscribe(render);
-
 render();
-
-document.addEventListener('click',()=>{
-  store.dispatch({type:'INCREMENT'});
-});
