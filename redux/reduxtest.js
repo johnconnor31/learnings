@@ -1,4 +1,4 @@
- const {createStore} = Redux;
+const {createStore} = Redux;
 const counter = (state=0,action)=>{
   console.log(action);
   switch(action.type){
