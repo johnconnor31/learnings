@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Router, Route, BrowserRouter, NavLink, Switch } from 'react-router-dom';
+import MouseMove from './mouseMove';
 
 function App() {
   return (
@@ -16,11 +17,15 @@ function App() {
       <li>
       <NavLink to='/contact'>Contact</NavLink>
       </li>
+      <li>
+      <NavLink to='/mouseMove'>Move Mouse</NavLink>
+      </li>
     </ul>
 
     <Route exact path='/' component={Home} />
     <Route path='/about' component={About} />
     <Route path='/contact' component={Contact} />
+    <Route path='/mouseMove' component={MouseMove} />
     </BrowserRouter>
   );
 }
