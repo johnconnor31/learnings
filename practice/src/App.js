@@ -1,8 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Router, Route, BrowserRouter, NavLink, Switch } from 'react-router-dom';
+import {  Route, BrowserRouter, NavLink, Switch } from 'react-router-dom';
+import MouseMoveWithoutHooks from './mouseMoveWithoutHooks';
 import MouseMove from './mouseMove';
+import WhyDidYouUpdate from './whyDidYouUpdate';
+import BenchMark from './BenchMark';
 
 function App() {
   return (
@@ -18,14 +20,26 @@ function App() {
       <NavLink to='/contact'>Contact</NavLink>
       </li>
       <li>
-      <NavLink to='/mouseMove'>Move Mouse</NavLink>
+        <NavLink to='/mouseMoveRegular'>Move Mouse</NavLink>
+      </li>
+      <li>
+      <NavLink to='/mouseMove'>Move Mouse with hooks</NavLink>
+      </li>
+      <li>
+        <NavLink to='/Benchmark'>Benchmark</NavLink>
+      </li>
+      <li>
+        <NavLink to='/yUpdate'>Check Why You Updated</NavLink>
       </li>
     </ul>
 
     <Route exact path='/' component={Home} />
     <Route path='/about' component={About} />
     <Route path='/contact' component={Contact} />
+    <Route path='/mouseMoveRegular' component={MouseMoveWithoutHooks} />
     <Route path='/mouseMove' component={MouseMove} />
+    <Route path='/Benchmark' render={() => <BenchMark start={Date.now()} />} />
+    <Route path='/yUpdate' component={WhyDidYouUpdate} />
     </BrowserRouter>
   );
 }

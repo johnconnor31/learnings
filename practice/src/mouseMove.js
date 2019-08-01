@@ -12,7 +12,7 @@ function MouseMove() {
     const handleClick = useCallback(e => window.alert('hello, you are at', e),[]);
     
     useEventListener('mousemove', handlePosChange);
-    useEventListener('mouseup', handleClick);
+    // useEventListener('mouseup', handleClick);
     return (
         <div> 
             current Position is {position.x},{position.y}
