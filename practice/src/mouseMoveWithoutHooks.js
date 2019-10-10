@@ -7,10 +7,16 @@ class MouseMove extends React.Component {
             x: clientX,
             y: clientY
         });
+        if(this.props.i===0){
+            this.props.updateStart(Date.now());
+        }
     }
     componentDidMount() {
         console.log('component mounted');
         window.addEventListener('mousemove', this.handleMove);
+    }
+    componentWillUnmount(){
+        window.removeEventListener('mousemove',this.handleMove);
     }
     render(){
         const {x, y} = this.state;

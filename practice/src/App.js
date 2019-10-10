@@ -1,10 +1,14 @@
 import React from 'react';
-import './App.css';
 import {  Route, BrowserRouter, NavLink, Switch } from 'react-router-dom';
 import MouseMoveWithoutHooks from './mouseMoveWithoutHooks';
 import MouseMove from './mouseMove';
 import WhyDidYouUpdate from './whyDidYouUpdate';
 import BenchMark from './BenchMark';
+import ImagesCollage from './ImagesCollage';
+import ImagesCollageWithHooks from './ImagesCollageWithHooks';
+import LockBackground from './LockBackground';
+import ContextButton from './ContextButton';
+import ContextButtonWithHook from './ContextWithHook';
 
 function App() {
   return (
@@ -31,6 +35,21 @@ function App() {
       <li>
         <NavLink to='/yUpdate'>Check Why You Updated</NavLink>
       </li>
+      <li>
+        <NavLink to='/imagesCollage'>Images Collage</NavLink>
+      </li>
+      <li>
+        <NavLink to='/imagesCollageWithHooks'>Images Collage with hooks</NavLink>
+      </li>
+      <li>
+        <NavLink to='/lockableScroll'>Lockable scroll hook</NavLink>
+      </li>
+      <li>
+        <NavLink to = '/context'>Context</NavLink>
+      </li>
+      <li>
+        <NavLink to = '/contextWithHook'>Context with hook</NavLink>
+      </li>
     </ul>
 
     <Route exact path='/' component={Home} />
@@ -40,6 +59,11 @@ function App() {
     <Route path='/mouseMove' component={MouseMove} />
     <Route path='/Benchmark' render={() => <BenchMark start={Date.now()} />} />
     <Route path='/yUpdate' component={WhyDidYouUpdate} />
+    <Route path='/imagesCollage' component={ImagesCollage} />
+    <Route path='/imagesCollageWithHooks' component={ImagesCollageWithHooks} />
+    <Route path='/lockableScroll' component={LockBackground} />
+    <Route path='/context' component={ContextButton} />
+    <Route path='/contextWithHook' component={ContextButtonWithHook} />
     </BrowserRouter>
   );
 }
