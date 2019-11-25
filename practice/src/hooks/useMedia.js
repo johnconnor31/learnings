@@ -5,7 +5,6 @@ function useMedia(querySet, valueSet, defaultValue){
     const getValue = () => {
         console.log('matched queries are', matchedQueries);
         const index = matchedQueries.findIndex(mq => mq.matches);
-        console.log('query match found', index);
         return index ===-1 ? defaultValue : valueSet[index];
     }
     const [value, setValue] = useState(getValue);

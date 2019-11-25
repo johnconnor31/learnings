@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import api from './api/suspenseFakeApi';
 import data from './static/data';
 import 'bulma/css/bulma.css';
 
