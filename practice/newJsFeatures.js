@@ -4,81 +4,66 @@
 
 // class Product  {
 // 	constructor(type){
-// 		this.value = 'ooo'
+// 		this.type = type;
 // 	}
 	
-// [Symbol.search](str){
-// 	return str.indexOf(this.type)>=0 ? 'FOUND' : 'NOT_FOUND';
-// }
+//         [Symbol.search](str) {
+//             return str.indexOf(this.type)>=0 ? 'FOUND' : 'NOT_FOUND';
+//         };
 // }
 
-// const newProd = new Product('def');
+// const newProd = new Product('ab');
 // console.log(newProd);
 // console.log(myStr.search(newProd));
+// console.log(Symbol.for('search'));
 
 // //defining iterables
-// class Users{
+// class Users {
 // 	constructor(users){
-// 		this.users = users;
+// 			this.users = users;
 // 	}
 // 	getUsers(){
-// 		console.log(this.users);
+// 		return this.users;
 // 	}
 // 	[Symbol.iterator](){
-// 	let i =0;
-// 	let users = this.users;
-// 	return {
-// 		next(){
-// 			if(i==users.length)
-// 				return {done: true};
-// 			else 
-// 				return {done:false, value: users[i++]}
+//         const users = this.users;
+//         let i =0;
+// 		return {
+// 			next(){
+// 				if(i == users.length){
+// 					return {done: true};
+// 				} else {
+// 					return { done: false, value: users[i++]}
+// 				}
+// 			}
 // 		}
 // 	}
 // }
-// }
 
 // const myUsers = new Users([
-// 	{'user':'abc'},
-// 	{'user':'def'}]);
-
-// console.log('get users', myUsers.getUsers());
-// for(var key in myUsers){
-// 	console.log('val', myUsers[key]);
+// 	'abc','def','defs'
+// ]);
+// for(var i of myUsers){
+// 	console.log(i);
 // }
+// console.log([...myUsers]);
+// generators
+	class MyNeeds {
+		constructor(needs){
+			this.needs = needs;
+		}
+		*getNeeds(){
+			for(var i=0;i<this.needs.length;i++){
+				yield this.needs[i];
+			}
+		}
+	}
 
-// console.log('myUsers', {...myUsers});
+	const allNeeds = new MyNeeds(['advanced JS', 'React Hooks', 'HTML5', 'CSS3']);
 
-
-// console.log('values', [...myUsers]);
-
-// //generators
-// class myOptions{
-// 	constructor(options){
-// 		this.options = options;
-// 	}
-// 	*getOptions(){
-// 		for(let i=0;i<this.options.length;i++)
-// 		yield this.options[i];
-// 	}
-// }
-
-// const listOfOptions = new myOptions([
-// {opt: 'better job'},
-// {opt:'Foreign job'},
-// {opt: 'stay here and chill out'}]);
-// console.log({...listOfOptions});
-// const generator = listOfOptions.getOptions();
-// console.log('value', generator.next());
-// console.log('value', generator.next());
-// console.log('value', generator.next());
-
-// for(const u of generator){
-// 	console.log(u);
-// }
-// console.log([...generator]);
-
-
+	// console.log(allNeeds.getNeeds().next());
+	
+	console.log([...allNeeds.getNeeds()]);
 // function* myTasks(tasks) {
 // 	for(let i=0;i<tasks.length;i++){
 // 		yield tasks[i];
@@ -97,7 +82,12 @@
 // console.log(tasks.next());
 
 
-const arr = [[1,2],[4,5,[4,5]],3,[5,6],6];
-const mergeArr = arr => arr.reduce((a,b) => a.concat(Array.isArray(b) ? mergeArr(b): b),[]);
+// const arr = [[1,2],[4,5,[4,5]],3,[5,6],6];
+// const mergeArr = arr => arr.reduce((a,b) => a.concat(Array.isArray(b) ? mergeArr(b): b),[]);
 
-console.log(mergeArr(arr));
+// console.log(mergeArr(arr));
+
+
+// // js feature practice
+
+

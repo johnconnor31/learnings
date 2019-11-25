@@ -9,6 +9,7 @@ import ImagesCollageWithHooks from './ImagesCollageWithHooks';
 import LockBackground from './LockBackground';
 import ContextButton from './ContextButton';
 import ContextButtonWithHook from './ContextWithHook';
+import FlexBox from './FlexBox';
 
 function App() {
   return (
@@ -50,6 +51,9 @@ function App() {
       <li>
         <NavLink to = '/contextWithHook'>Context with hook</NavLink>
       </li>
+      <li>
+        <NavLink to = '/flexBox'>Flex</NavLink>
+      </li>
     </ul>
 
     <Route exact path='/' component={Home} />
@@ -64,6 +68,7 @@ function App() {
     <Route path='/lockableScroll' component={LockBackground} />
     <Route path='/context' component={ContextButton} />
     <Route path='/contextWithHook' component={ContextButtonWithHook} />
+    <Route path='/flexBox' component={FlexBox} />
     </BrowserRouter>
   );
 }
