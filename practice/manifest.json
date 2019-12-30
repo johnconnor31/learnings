@@ -1,0 +1,10 @@
+{
+    "name": "MyApp",
+    "short_name": "app",
+    "icons": [{
+        "src": "./src/logo.svg",
+        "type": "image/png",
+        "sizes": "192x192"
+    }],
+    "start_url": "/"
+}
