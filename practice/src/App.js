@@ -10,6 +10,7 @@ import LockBackground from './LockBackground';
 import ContextButton from './ContextButton';
 import ContextButtonWithHook from './ContextWithHook';
 import FlexBox from './FlexBox';
+import MemoryRouter from './MemoryRouter';
 
 function App() {
   return (
@@ -54,6 +55,9 @@ function App() {
       <li>
         <NavLink to = '/flexBox'>Flex</NavLink>
       </li>
+      <li>
+        <NavLink to = '/memoryRouter'>Memory Router</NavLink>
+      </li>
     </ul>
 
     <Route exact path='/' component={Home} />
@@ -69,6 +73,7 @@ function App() {
     <Route path='/context' component={ContextButton} />
     <Route path='/contextWithHook' component={ContextButtonWithHook} />
     <Route path='/flexBox' component={FlexBox} />
+    <Route path='/memoryRouter' component={MemoryRouter} />
     </BrowserRouter>
   );
 }
